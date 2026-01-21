@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dark Top Up Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --main:#00ffd5;
+  --bg:#050505;
+  --card:#0e0e0e;
+  --border:#1f1f1f;
+}
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+  margin:0;
+  background:radial-gradient(circle at top,#001818,#000);
+  color:#fff;
+}
+header{
+  padding:25px 15px;
+  text-align:center;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.logo-icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#00ffd5,#00bfa5);
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:bold;
+  box-shadow:0 0 25px var(--main);
+}
+header h1{
+  margin:0;
+  color:var(--main);
+  font-size:26px;
+}
+header p{
+  opacity:.7;
+  margin-top:8px;
+}
+nav{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding-bottom:10px;
+}
+nav button{
+  background:#000;
+  border:1px solid var(--border);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:25px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:.3s;
+}
+nav button.active,
+nav button:hover{
+  background:var(--main);
+  color:#000;
+  box-shadow:0 0 15px var(--main);
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+.card{
+  position:relative;
+  background:linear-gradient(160deg,#0b0b0b,#050505);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:22px;
+  box-shadow:0 0 40px rgba(0,255,213,.08);
+}
+.card-icon{
+  position:absolute;
+  right:18px;
+  top:18px;
+  font-size:46px;
+  opacity:.15;
+}
+.card h2{
+  color:var(--main);
+  margin-bottom:10px;
+}
+input,select{
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border-radius:12px;
+  background:#000;
+  border:1px solid var(--border);
+  color:#fff;
+}
+.price{
+  margin-top:12px;
+  font-size:18px;
+  color:var(--main);
+}
+.order{
+  margin-top:18px;
+  padding:14px;
+  text-align:center;
+  background:linear-gradient(45deg,#00ffd5,#00bfa5);
+  color:#000;
+  border-radius:14px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+.order:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 30px var(--main);
+}
+.hidden{display:none}
+footer{
+  text-align:center;
+  opacity:.5;
+  font-size:13px;
+  margin:30px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">⚡</div>
+    <h1>Dark Top Up Store</h1>
+  </div>
+  <p>Fast • Secure • Auto WhatsApp</p>
+</header>
+
+<nav>
+  <button class="active" onclick="show('ff')">🔥 FF</button>
+  <button onclick="show('ml')">🎮 ML</button>
+  <button onclick="show('dana')">💙 DANA</button>
+  <button onclick="show('ovo')">💜 OVO</button>
+</nav>
+
+<div class="container">
+
+<div id="ff" class="card">
+<div class="card-icon">🔥</div>
+<h2>Diamond Free Fire</h2>
+<input id="ffid" placeholder="ID Free Fire">
+<select id="ffpaket" onchange="update('ff')">
+<option value="">Pilih Diamond</option>
+<option data-price="1000">5 Diamonds</option>
+<option data-price="2000">12 Diamonds</option>
+<option data-price="8000">50 Diamonds</option>
+<option data-price="10000">70 Diamonds</option>
+<option data-price="20000">140 Diamonds</option>
+<option data-price="50000">355 Diamonds</option>
+<option data-price="100000">720 Diamonds</option>
+<option data-price="200000">1.450 Diamonds</option>
+<option data-price="300000">2.180 Diamonds</option>
+<option data-price="500000">3.640 Diamonds</option>
+</select>
+<div class="price" id="ffprice">Harga: -</div>
+<div class="order" onclick="order('Free Fire','ff')">Order via WhatsApp</div>
+</div>
+
+<div id="ml" class="card hidden">
+<div class="card-icon">🎮</div>
+<h2>Diamond Mobile Legends</h2>
+<input id="mlid" placeholder="ID(Server)">
+<select id="mlpaket" onchange="update('ml')">
+<option value="">Pilih Diamond</option>
+<option data-price="1171">3 Diamonds</option>
+<option data-price="1423">5 Diamonds</option>
+<option data-price="3323">12 Diamonds</option>
+<option data-price="5223">19 Diamonds</option>
+<option data-price="7600">28 Diamonds</option>
+<option data-price="11400">44 Diamonds</option>
+<option data-price="15200">59 Diamonds</option>
+<option data-price="21850">85 Diamonds</option>
+<option data-price="43700">170 Diamonds</option>
+<option data-price="61750">240 Diamonds</option>
+<option data-price="76000">296 Diamonds</option>
+<option data-price="104500">408 Diamonds</option>
+<option data-price="142500">568 Diamonds</option>
+<option data-price="218500">875 Diamonds</option>
+<option data-price="475000">2.010 Diamonds</option>
+<option data-price="1140000">4.830 Diamonds</option>
+</select>
+<div class="price" id="mlprice">Harga: -</div>
+<div class="order" onclick="order('Mobile Legends','ml')">Order via WhatsApp</div>
+</div>
+
+<div id="dana" class="card hidden">
+<div class="card-icon">💙</div>
+<h2>Top Up DANA</h2>
+<input id="danaid" placeholder="Nomor DANA">
+<select id="danapaket" onchange="update('dana')">
+<option data-price="12000">10.000</option>
+<option data-price="17000">15.000</option>
+<option data-price="22000">20.000</option>
+<option data-price="27000">25.000</option>
+<option data-price="33000">30.000</option>
+<option data-price="53000">50.000</option>
+<option data-price="104000">100.000</option>
+<option data-price="155000">150.000</option>
+<option data-price="205000">200.000</option>
+</select>
+<div class="price" id="danaprice">Harga: -</div>
+<div class="order" onclick="order('DANA','dana')">Order via WhatsApp</div>
+</div>
+
+<div id="ovo" class="card hidden">
+<div class="card-icon">💜</div>
+<h2>Top Up OVO</h2>
+<input id="ovoid" placeholder="Nomor OVO">
+<select id="ovopaket" onchange="update('ovo')">
+<option data-price="13000">10.000</option>
+<option data-price="18000">15.000</option>
+<option data-price="23000">20.000</option>
+<option data-price="28000">25.000</option>
+<option data-price="34000">30.000</option>
+<option data-price="55000">50.000</option>
+<option data-price="105000">100.000</option>
+<option data-price="157000">150.000</option>
+<option data-price="207000">200.000</option>
+</select>
+<div class="price" id="ovoprice">Harga: -</div>
+<div class="order" onclick="order('OVO','ovo')">Order via WhatsApp</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Dark Top Up Store • Auto WhatsApp
+</footer>
+
+<script>
+const wa="628985663166";
+function show(id){
+  document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+function update(p){
+  const s=document.getElementById(p+'paket');
+  const pr=s.options[s.selectedIndex].dataset.price;
+  document.getElementById(p+'price').innerText=pr?"Harga: Rp. "+pr:"Harga: -";
+}
+function order(prod,p){
+  const id=document.getElementById(p+'id').value;
+  const s=document.getElementById(p+'paket');
+  const pk=s.options[s.selectedIndex].text;
+  const pr=s.options[s.selectedIndex].dataset.price;
+  if(!id||!pr)return alert("Lengkapi data!");
+  const msg=`Halo Admin,%0A%0ASaya mau order:%0AProduk: ${prod}%0ANominal: ${pk}%0AID: ${id}%0AHarga: Rp. ${pr}`;
+  window.open(`https://wa.me/${wa}?text=${msg}`);
+}
+</script>
+
+</body>
+</html>
